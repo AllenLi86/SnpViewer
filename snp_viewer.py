@@ -19,6 +19,33 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# 隱藏 Streamlit 預設的 UI 元素
+hide_streamlit_style = """
+<style>
+/* 隱藏右上角的漢堡選單（包含 "View app source"）*/
+#MainMenu {visibility: hidden;}
+
+/* 隱藏頁尾 */
+footer {visibility: hidden;}
+
+/* 隱藏頂部 header */
+header {visibility: hidden;}
+
+/* 隱藏工具列 */
+div[data-testid="stToolbar"] {display: none;}
+
+/* 隱藏右上角按鈕 */
+button[kind="header"] {display: none;}
+
+/* 隱藏 Deploy 按鈕 */
+.stDeployButton {display: none;}
+
+/* 隱藏狀態列 */
+div[data-testid="stStatusWidget"] {display: none;}
+</style>
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 st.title("📊 S-parameter Viewer")
 st.write("Upload multiple .snp files (.s1p, .s2p, .s4p, etc.) for plotting comparison and analysis")
 
